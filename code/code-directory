@@ -1,0 +1,75 @@
+#include <Wire.h>
+#include <hd44780.h>
+#include <hd44780ioClass/hd44780_I2Cexp.h> 
+hd44780_I2Cexp lcd; 
+const int tracingPin = 11;
+const int ledPin = 13;
+float t;
+int i=1;
+int in1 = 8;
+int in2 = 7;
+int pwm1 = 10;
+int in3 = 4;
+int in4 = 2;
+int pwm2 = 5;
+bool flag=false;
+void setup() {
+pinMode(tracingPin, INPUT);
+pinMode(ledPin, OUTPUT);
+  lcd.begin(16, 2);
+  lcd.print("1o EPAL ARTAS");
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(pwm1, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  pinMode(pwm2, OUTPUT);
+}
+
+void loop() {
+
+//for(i=1;i<=10;i++)
+while(i<=10 && flag==false)
+{
+
+  lcd.setCursor(0, 1);
+  lcd.print(10-i);
+  delay(1000); 
+   i=i+1; }
+   if (i=11)
+    { flag=true;}
+  
+int val = digitalRead(tracingPin);
+if(val == LOW)
+{      forward(); 
+       digitalWrite(ledPin, HIGH);
+       t=t+1;
+       }
+else
+{ 
+  stopit();
+   digitalWrite(ledPin, LOW);
+    lcd.setCursor(4, 1);
+    lcd.print("TIME");
+   lcd.setCursor(10, 1);
+    lcd.print(t/1000);
+   }
+}
+void forward()
+{
+  digitalWrite(in1,HIGH);
+  digitalWrite(in2,LOW);
+  analogWrite(pwm1,255);
+  digitalWrite(in3,HIGH);
+  digitalWrite(in4,LOW);
+  analogWrite(pwm2,255);
+}
+void stopit()
+{
+  digitalWrite(in1,LOW);
+  digitalWrite(in2,LOW);
+  analogWrite(pwm1,0);
+  digitalWrite(in3,LOW);
+  digitalWrite(in4,LOW);
+  analogWrite(pwm2,0);
+}
