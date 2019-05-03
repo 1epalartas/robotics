@@ -17,11 +17,15 @@
 1. Arduino car kit ποσότητα 1 (Arduino UNO, Expansion Board , Servo, Charger, 4 DC motors, motor driver Board , 4 Tires , Cell box)
 2. Sensors (1 Line Tracking, 1 LCD Display , 1 remote control , 1 ultrasonic , 1 bluetooth module , 1 IR receiver module )
 
-Συνήθως ένα Arduino car kit περιλαμβάνει όλα τα παραπάνω. 
+Συνήθως ένα Arduino car kit περιλαμβάνει όλα τα παραπάνω. Κόστος περίπου 57 ευρώ με έκπτωση.
 
+
+
+
+ΠΑΡΑΔΟΤΕΑ
 Στον φάκελο code θα βρείτε τον κώδικα που χρησιμοποιήσαμε.
 
-Στον φάκελο docs θα βρείτε ένα έγγραφο όπου βήμα -βήμα δείχνουμε την πορεία του project μας.
+Στον φάκελο docs θα βρείτε ένα έγγραφο όπου βήμα -βήμα δείχνουμε την πορεία του project μας και 2 βίντεο.
 
 Στον φάκελο hardware-dεsing θα βρείτε κάποια σχέδια σύνδεσης των διαφόρων εξαρτημάτων του οχήματός μας.
 
