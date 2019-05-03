@@ -28,8 +28,8 @@ pinMode(ledPin, OUTPUT);
 
 void loop() {
 
-//for(i=1;i<=10;i++)
-while(i<=10 && flag==false)
+
+while(i<=10 && flag==false)            //αντίστροφη μέτρηση από το 10 μέχρι το 0 και εμφάνιση στην οθόνη
 {
 
   lcd.setCursor(0, 1);
@@ -39,14 +39,14 @@ while(i<=10 && flag==false)
    if (i=11)
     { flag=true;}
   
-int val = digitalRead(tracingPin);
-if(val == LOW)
-{      forward(); 
+int val = digitalRead(tracingPin);         //εαν η τιμή του αισθητήρα είναι LOW δηλαδή άσπρο χρώμα 
+if(val == LOW)                            // το αυτοκίνητο κινήται
+{      forward();                         
        digitalWrite(ledPin, HIGH);
        t=t+1;
        }
-else
-{ 
+else                                        // αλλιώς εάν η τιμή του αισθητήρα είναι HIGH δηλαδή μαύρο χρώμα (γραμμή τερματισμού)
+{                                           // το αυτοκίνητο σταματάει και εμφανίζει το χρόνο που έκανε
   stopit();
    digitalWrite(ledPin, LOW);
     lcd.setCursor(4, 1);
@@ -55,7 +55,7 @@ else
     lcd.print(t/1000);
    }
 }
-void forward()
+void forward()                              //συνάρτηση για να κινήται το όχημα μπροστά
 {
   digitalWrite(in1,HIGH);
   digitalWrite(in2,LOW);
@@ -64,7 +64,7 @@ void forward()
   digitalWrite(in4,LOW);
   analogWrite(pwm2,255);
 }
-void stopit()
+void stopit()                               //συνάρτηση για να σταματήσει το όχημα να κινήται.
 {
   digitalWrite(in1,LOW);
   digitalWrite(in2,LOW);
